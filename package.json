@@ -1,0 +1,37 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "webpack-dev-server --mode=development --config ./build/webpack.config.js",
+    "build": "webpack --mode=production --config ./build/webpack.config.js"
+  },
+  "devDependencies": {
+    "bundle-loader": "^0.5.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.1",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "style-loader": "^1.0.1",
+    "terser-webpack-plugin": "^2.2.1",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "clipboard": "^2.0.4",
+    "crypto-js": "^3.1.9-1",
+    "fingerprintjs2": "^2.1.0",
+    "md5": "^2.2.1",
+    "native-toast": "^2.0.0",
+    "platform": "^1.3.5",
+    "webpack-zepto": "0.0.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
