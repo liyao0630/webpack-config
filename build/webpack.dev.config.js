@@ -3,8 +3,8 @@ module.exports = {
   devServer: {
     // progress: true,
     stats: 'errors-only',
-    // open: true,
-    useLocalIp: true,
+    open: true,
+    // useLocalIp: true,
     proxy: {
       '/api/*': {
         target: 'http://api-h5.huanletang.com',
