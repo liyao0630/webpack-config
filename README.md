@@ -23,7 +23,7 @@ package.json
 
 `promise-loader`：类似于，bundle-loader但使用`Promise`。
 
-#### webpack 默认配置
+#### webpack splitChunks的默认配置
 ```
 optimization: {
   splitChunks: {
@@ -97,7 +97,6 @@ cacheGroups: {
   echartsVenodr: { // 异步加载echarts包
    test: /(echarts|zrender)/,
    priority: 100, // 高于async-commons优先级
-   name: 'echartsVenodr',
    chunks: 'async'
   },
   'async-commons': { // 其余异步加载包
@@ -115,12 +114,16 @@ cacheGroups: {
 }
 ```
 
-在html-webpack-plugin.chunks按需写入js。
+#### 异步加载
+
+模块方法的[import()](https://webpack.docschina.org/api/module-methods/#import-) 动态加载模块。 依赖Promise，在低版本浏览器使用 [es6-promise](https://github.com/stefanpenner/es6-promise) 或者 [promise-polyfill](https://github.com/taylorhakes/promise-polyfill) 这样 polyfill 库，来预先填充(shim) Promise 环境。这里使用`es6-promise`作为polyfill。
+
+#### 在html-webpack-plugin.chunks按需写入js。
 ```
 new HtmlWebpackPlugin({
   template: entryDir + '/src/index.html',
   filename: 'index.html',
-  chunks: ['vendors', 'commons', 'home'],
+  chunks: ['commons', 'home'],
   inject: true,
   minify: {
     removeComments: true,

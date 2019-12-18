@@ -11,10 +11,10 @@ const outputDir = path.resolve(__dirname, '..' + package.outputDir)
 
 const config = {
   entry: {
-    'pie1': entryDir + '/src/js/echarts.pie1.js',
+    // 'pie1': entryDir + '/src/js/echarts.pie1.js',
     'pie2': entryDir + '/src/js/echarts.pie2.js',
-    'pie3': entryDir + '/src/js/echarts.pie3.js',
-    'pie4': entryDir + '/src/js/echarts.pie4.js',
+    'pie3': entryDir + '/src/js/echarts.pie2.1.js',
+    'pie4': entryDir + '/src/js/echarts.pie2.2.js',
   },
   output: {
     path: outputDir,
@@ -28,7 +28,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: entryDir + '/src/index-pie1.html',
       filename: 'index.html',
-      chunks: ['echartsVenodr', 'pie1'],
+      chunks: ['commons','pie2'],
       inject: true,
       minify: {
         removeComments: true,
@@ -51,13 +51,19 @@ if (mode === 'production') {
       cacheGroups: {
         echartsVenodr: { // 异步加载echarts包
           test: /(echarts|zrender)/,
-          priority: 100, // 高于async-commons优先级
-          name: 'echartsVenodr',
-          chunks: 'all'
+          priority: 100, // 高于commons优先级
+          // name: 'echartsVenodr',
+          chunks: 'async'
         },
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: 90
+        // vendors: {
+        //   test: /[\\/]node_modules[\\/]/,
+        //   priority: 90
+        // },
+        commons: { // 其余同步加载包
+          chunks: 'all',
+          minChunks: 2,
+          name: 'commons',
+          priority: 80,
         },
         // default: {
         //     minChunks: 2,

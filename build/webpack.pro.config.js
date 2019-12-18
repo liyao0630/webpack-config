@@ -14,7 +14,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        // new BundleAnalyzerPlugin(), // 打包结果可视化
+        new BundleAnalyzerPlugin(), // 打包结果可视化
     ],
     stats: {
         children: false,

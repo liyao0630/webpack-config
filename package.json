@@ -2,9 +2,9 @@
   "name": "code",
   "version": "1.0.0",
   "description": "",
-  "configKey": "echarts",
-  "entryDir": "/echarts",
-  "outputDir": "/echarts/dist/",
+  "configKey": "h5",
+  "entryDir": "/h5",
+  "outputDir": "/h5/dist/",
   "scripts": {
     "start": "webpack-dev-server --mode=development",
     "build": "webpack --mode=production"
@@ -31,6 +31,7 @@
     "clipboard": "^2.0.4",
     "crypto-js": "^3.1.9-1",
     "echarts": "^4.5.0",
+    "es6-promise": "^4.2.8",
     "fingerprintjs2": "^2.1.0",
     "md5": "^2.2.1",
     "native-toast": "^2.0.0",
